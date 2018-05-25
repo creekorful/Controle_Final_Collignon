@@ -3,16 +3,10 @@
 URL de l'application frontend : http://localhost:8080/
 
 Compte admin : 
-
-	username : admin
-
-	password : admin
+> admin / admin
 
 Compte guest :
-
-	username : guest
-
-	password : guest
+> guest / guest
 
 ---
 
