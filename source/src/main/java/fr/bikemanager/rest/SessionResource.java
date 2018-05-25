@@ -1,6 +1,7 @@
 package fr.bikemanager.rest;
 
 import fr.bikemanager.dto.CredentialsDto;
+import fr.bikemanager.dto.TokenDto;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -12,5 +13,5 @@ public interface SessionResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    String login(CredentialsDto credentialsDto);
+    TokenDto login(CredentialsDto credentialsDto);
 }
