@@ -15,7 +15,7 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
     @Override
     public User findUserByCredentials(String username, String password) {
         Criteria criteria = getSession().createCriteria(User.class);
-        criteria.add(Restrictions.eq("username", username));
+        criteria.add(Restrictions.eq("login", username));
         criteria.add(Restrictions.eq("password", password)); // todo hash/salt and stuff
         return (User) criteria.uniqueResult();
     }
