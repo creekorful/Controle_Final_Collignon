@@ -20,11 +20,11 @@ $(function() {
 
                     if (token !== null) {
                         window.localStorage.setItem('token', msg['token']);
+                        window.location.reload();
                     } else {
-                        alert("Wrong credentials...");
+                        $("#login").prepend('<div class="alert alert-danger"> <strong>Erreur! </strong>Mauvais' +
+                                            ' credentials.</div>');
                     }
-
-                    window.location.reload();
                 });
             }
         }
