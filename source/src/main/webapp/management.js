@@ -15,6 +15,12 @@ $(function() {
                        $.get("api/motorcycles", function (data) {
                            management.motorcycles = data;
                        });
+                   },
+                   error: function(result) {
+                        alert("error");
+                   },
+                   beforeSend: function(xhr, settings) {
+                       xhr.setRequestHeader('Authorization','Bearer ' + window.localStorage.getItem('token'));
                    }
                });
             }
