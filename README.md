@@ -14,6 +14,12 @@ URL de l'API : http://localhost:8080/api/
 
 # Préparer la base de données
 
+Installer si nécessaire un serveur MySQL
+
+- Créer la base de données "bikemanager"
+- Créer l'utilisateur nécessaire avec les credentials suivant : bikemanager/K4baRKCX2C#z\*sv$
+- Grant all privileges à bikemanager sur la base bikemanager
+
 # Initialiser la base de données
 
 Pour generer la base de données
