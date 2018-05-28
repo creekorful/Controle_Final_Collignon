@@ -14,6 +14,14 @@ public interface UserDao {
     User findUserByCredentials(String username, String password);
 
     /**
+     * Find an user using his auth token
+     *
+     * @param authToken the user auth token
+     * @return the associated user or null if not found
+     */
+    User findByAuthToken(String authToken);
+
+    /**
      * Save an user into the database
      *
      * @param user the user to save

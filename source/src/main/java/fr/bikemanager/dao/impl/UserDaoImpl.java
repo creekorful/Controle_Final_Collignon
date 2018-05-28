@@ -20,6 +20,13 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
         return (User) criteria.uniqueResult();
     }
 
+    @Override
+    public User findByAuthToken(String authToken) {
+        Criteria criteria = getSession().createCriteria(User.class);
+        criteria.add(Restrictions.eq("apiToken", authToken));
+        return (User) criteria.uniqueResult();
+    }
+
     @Transactional
     @Override
     public void save(User user) {
