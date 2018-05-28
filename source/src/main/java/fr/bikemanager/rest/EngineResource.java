@@ -10,23 +10,23 @@ import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import fr.bikemanager.dto.MotorDto;
-import fr.bikemanager.manager.MotorManager;
+import fr.bikemanager.dto.EngineDto;
+import fr.bikemanager.manager.EngineManager;
 
-@Path("/motors")
+@Path("/engines")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class MotorResource {
+public class EngineResource {
 
-    private MotorManager motorManager;
+    private EngineManager engineManager;
 
     @Autowired
-    public MotorResource(MotorManager motorManager) {
-        this.motorManager = motorManager;
+    public EngineResource(EngineManager engineManager) {
+        this.engineManager = engineManager;
     }
 
     @GET
-    public List<MotorDto> getAll() {
-        return motorManager.getAll();
+    public List<EngineDto> getAll() {
+        return engineManager.getAll();
     }
 }

@@ -3,8 +3,8 @@ package fr.bikemanager.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Motor")
-public class Motor {
+@Table(name = "Engine")
+public class Engine {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,11 +18,11 @@ public class Motor {
 
     private int engineCylinder;
 
-    public Motor() {
+    public Engine() {
 
     }
 
-    public Motor(float oilQuantity, String brand, int enginePower, int engineCylinder) {
+    public Engine(float oilQuantity, String brand, int enginePower, int engineCylinder) {
         this.oilQuantity = oilQuantity;
         this.brand = brand;
         this.enginePower = enginePower;

@@ -15,7 +15,7 @@ public class Motorcycle {
     private String model;
 
     @ManyToOne
-    private Motor motor;
+    private Engine engine;
 
     private int fiscalPower;
 
@@ -25,10 +25,10 @@ public class Motorcycle {
 
     }
 
-    public Motorcycle(String brand, String model, Motor motor, int fiscalPower, String tireType) {
+    public Motorcycle(String brand, String model, Engine engine, int fiscalPower, String tireType) {
         this.brand = brand;
         this.model = model;
-        this.motor = motor;
+        this.engine = engine;
         this.fiscalPower = fiscalPower;
         this.tireType = tireType;
     }
@@ -57,12 +57,12 @@ public class Motorcycle {
         this.model = model;
     }
 
-    public Motor getMotor() {
-        return motor;
+    public Engine getEngine() {
+        return engine;
     }
 
-    public void setMotor(Motor motor) {
-        this.motor = motor;
+    public void setEngine(Engine engine) {
+        this.engine = engine;
     }
 
     public int getFiscalPower() {

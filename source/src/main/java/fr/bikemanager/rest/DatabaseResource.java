@@ -7,10 +7,10 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import fr.bikemanager.dao.MotorDao;
+import fr.bikemanager.dao.EngineDao;
 import fr.bikemanager.dao.MotorcycleDao;
 import fr.bikemanager.dao.UserDao;
-import fr.bikemanager.entity.Motor;
+import fr.bikemanager.entity.Engine;
 import fr.bikemanager.entity.Motorcycle;
 import fr.bikemanager.entity.User;
 
@@ -21,13 +21,13 @@ public class DatabaseResource {
 
     private MotorcycleDao motorcycleDao;
 
-    private MotorDao motorDao;
+    private EngineDao engineDao;
 
     @Autowired
-    public DatabaseResource(UserDao userDao, MotorcycleDao motorcycleDao, MotorDao motorDao) {
+    public DatabaseResource(UserDao userDao, MotorcycleDao motorcycleDao, EngineDao engineDao) {
         this.userDao = userDao;
         this.motorcycleDao = motorcycleDao;
-        this.motorDao = motorDao;
+        this.engineDao = engineDao;
     }
 
     @GET
@@ -38,11 +38,11 @@ public class DatabaseResource {
         userDao.save(new User("admin", "admin", true));
         userDao.save(new User("guest", "guest", false));
 
-        // Then some motors
-        Motor renaudEngine = new Motor(120, "Renaud", 150, 500);
-        Motor citroenEngine = new Motor(100, "Citroen", 100, 350);
-        motorDao.save(renaudEngine);
-        motorDao.save(citroenEngine);
+        // Then some engines
+        Engine renaudEngine = new Engine(120, "Renaud", 150, 500);
+        Engine citroenEngine = new Engine(100, "Citroen", 100, 350);
+        engineDao.save(renaudEngine);
+        engineDao.save(citroenEngine);
 
         // And finally, the motorcycle
         motorcycleDao.save(new Motorcycle("Renaud", "Lol I", renaudEngine, 5, "Course"));

@@ -19,7 +19,7 @@ public class JerseyConfiguration extends ResourceConfig {
     public void setup() {
 
         // Rest resources
-        register(MotorResource.class);
+        register(EngineResource.class);
         register(MotorcycleResource.class);
         register(SessionResource.class);
         register(DatabaseResource.class);

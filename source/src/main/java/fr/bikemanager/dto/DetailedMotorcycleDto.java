@@ -4,7 +4,7 @@ import fr.bikemanager.entity.Motorcycle;
 
 public class DetailedMotorcycleDto extends MotorcycleDto {
 
-    private MotorDto motor;
+    private EngineDto engine;
 
     private String tireType;
 
@@ -14,16 +14,16 @@ public class DetailedMotorcycleDto extends MotorcycleDto {
 
     public DetailedMotorcycleDto(Motorcycle motorcycle) {
         super(motorcycle);
-        this.motor = new MotorDto(motorcycle.getMotor());
+        this.engine = new EngineDto(motorcycle.getEngine());
         this.tireType = motorcycle.getTireType();
     }
 
-    public MotorDto getMotor() {
-        return motor;
+    public EngineDto getEngine() {
+        return engine;
     }
 
-    public void setMotor(MotorDto motor) {
-        this.motor = motor;
+    public void setEngine(EngineDto engine) {
+        this.engine = engine;
     }
 
     public String getTireType() {

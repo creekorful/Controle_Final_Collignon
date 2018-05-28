@@ -1,10 +1,10 @@
 package fr.bikemanager.dto;
 
-import fr.bikemanager.entity.Motor;
+import fr.bikemanager.entity.Engine;
 
 import java.io.Serializable;
 
-public class MotorDto implements Serializable {
+public class EngineDto implements Serializable {
 
     private int id;
 
@@ -16,12 +16,12 @@ public class MotorDto implements Serializable {
 
     private int engineCylinder;
 
-    public MotorDto(Motor motor) {
-        this.id = motor.getId();
-        this.oilQuantity = motor.getOilQuantity();
-        this.brand = motor.getBrand();
-        this.enginePower = motor.getEnginePower();
-        this.engineCylinder = motor.getEngineCylinder();
+    public EngineDto(Engine engine) {
+        this.id = engine.getId();
+        this.oilQuantity = engine.getOilQuantity();
+        this.brand = engine.getBrand();
+        this.enginePower = engine.getEnginePower();
+        this.engineCylinder = engine.getEngineCylinder();
     }
 
     public int getId() {
