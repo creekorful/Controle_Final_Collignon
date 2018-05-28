@@ -21,7 +21,7 @@ public class MotorcycleDto implements Serializable {
     public MotorcycleDto(Motorcycle motorcycle) {
         this.id = motorcycle.getId();
         this.brand = motorcycle.getBrand();
-        this.model = motorcycle.getBrand();
+        this.model = motorcycle.getModel();
         this.fiscalPower = motorcycle.getFiscalPower();
     }
 
