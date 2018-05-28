@@ -1,5 +1,6 @@
 package fr.bikemanager.rest;
 
+import fr.bikemanager.filter.AuthenticationFilter;
 import fr.bikemanager.rest.impl.DatabaseResourceImpl;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.context.annotation.Configuration;
@@ -23,5 +24,8 @@ public class JerseyConfiguration extends ResourceConfig {
         register(MotorcycleResourceImpl.class);
         register(SessionResourceImpl.class);
         register(DatabaseResourceImpl.class);
+
+        // Filters
+        register(AuthenticationFilter.class);
     }
 }
