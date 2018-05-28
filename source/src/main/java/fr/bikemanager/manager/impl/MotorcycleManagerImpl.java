@@ -7,6 +7,7 @@ import fr.bikemanager.entity.Motorcycle;
 import fr.bikemanager.manager.MotorcycleManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -40,5 +41,18 @@ public class MotorcycleManagerImpl implements MotorcycleManager {
     @Override
     public void deleteById(int motorcycleId) {
         motorcycleDao.deleteById(motorcycleId);
+    }
+
+    @Transactional
+    @Override
+    public void updateMotorcycle(int id, DetailedMotorcycleDto details) {
+        Motorcycle motorcycle = motorcycleDao.findById(id);
+
+        if (motorcycle != null) {
+            if (details.getBrand() != null) motorcycle.setBrand(details.getBrand());
+            if (details.getModel() != null) motorcycle.setModel(details.getModel());
+            if (details.getFiscalPower() != 0) motorcycle.setFiscalPower(details.getFiscalPower());
+            if (details.getTireType() != null) motorcycle.setTireType(details.getTireType());
+        }
     }
 }

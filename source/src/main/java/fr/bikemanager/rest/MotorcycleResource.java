@@ -17,6 +17,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -53,6 +54,16 @@ public class MotorcycleResource {
         // Only admin user are allowed to add motorcycle
         if (isUserAdmin(context.getUserPrincipal().getName())) {
             motorcycleManager.create(motorcycleDto);
+        }
+    }
+
+    @Secured
+    @PUT
+    @Path("/{id}")
+    public void editMotorcycle(@PathParam("id") int id, DetailedMotorcycleDto details) {
+        // Only admin are allowed to edit motorcycle
+        if (isUserAdmin(context.getUserPrincipal().getName())) {
+            motorcycleManager.updateMotorcycle(id, details);
         }
     }
 

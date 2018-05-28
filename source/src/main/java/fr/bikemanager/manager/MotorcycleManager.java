@@ -35,4 +35,12 @@ public interface MotorcycleManager {
      * @param motorcycleId the motorcycle to delete id
      */
     void deleteById(int motorcycleId);
+
+    /**
+     * Update motorcycle details
+     *
+     * @param id the motorcycle id
+     * @param details the new motorcycle details
+     */
+    void updateMotorcycle(int id, DetailedMotorcycleDto details);
 }
