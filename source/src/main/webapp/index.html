@@ -78,6 +78,7 @@
             <h2>Détail de la moto #{{motorcycle.id}}</h2><br/>
             <h4>{{motorcycle.brand}}</h4>
             <h4>Modèle {{motorcycle.model}}</h4><br/>
+            <h5>Charactéristiques de la moto</h5>
             Puissance fiscale: {{motorcycle.fiscalPower}} CV<br/>
             Type de roues: {{motorcycle.tireType}}
             <br/><br/>
@@ -92,7 +93,8 @@
         <div id="editMotorcycle" v-if="motorcycle" style="padding: 0 3% 3% 3%;">
             <h2>Edition de la moto #{{motorcycle.id}}</h2><br/>
             Marque: <input type="text" v-model="motorcycle.brand"/><br/>
-            Modèle: <input type="text" v-model="motorcycle.model"/><br/>
+            Modèle: <input type="text" v-model="motorcycle.model"/><br/><br/>
+            <h5>Charactéristiques de la moto</h5>
             Puissance fiscale: <input type="text" v-model="motorcycle.fiscalPower"/>CV<br/>
             Type de roues: <input type="text" v-model="motorcycle.tireType"/><br/>
             <br/><br/>
