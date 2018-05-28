@@ -61,7 +61,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
 
             @Override
             public Principal getUserPrincipal() {
-                return () -> userManager.getByAuthToken(token).getLogin();
+                return () -> token;
             }
 
             @Override

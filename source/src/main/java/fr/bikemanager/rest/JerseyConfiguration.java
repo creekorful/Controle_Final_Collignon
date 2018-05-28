@@ -19,9 +19,9 @@ public class JerseyConfiguration extends ResourceConfig {
     public void setup() {
 
         // Rest resources
-        register(MotorcycleResourceImpl.class);
+        register(MotorcycleResource.class);
         register(SessionResource.class);
-        register(DatabaseResourceImpl.class);
+        register(DatabaseResource.class);
 
         // Filters
         register(AuthenticationFilter.class);

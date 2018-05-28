@@ -40,8 +40,8 @@ public class SessionResource {
 
     @Secured
     @GET
+    @Path("/isAdmin")
     public Response isAdmin() {
-        System.out.println(context.getUserPrincipal().getName());
-        return null;
+        return Response.ok(userManager.isAdmin(context.getUserPrincipal().getName())).build();
     }
 }
