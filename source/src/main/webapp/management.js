@@ -27,6 +27,13 @@ $(function() {
             selectItem: function(id) {
                 $.get("api/motorcycles/" + id, function (data) {
                     details.motorcycle = data;
+                    editMotorcycle.motorcycle = undefined;
+                });
+            },
+            editItem: function(id) {
+                $.get("api/motorcycles/" + id, function (data) {
+                    details.motorcycle = undefined;
+                    editMotorcycle.motorcycle = data;
                 });
             }
         }
@@ -49,6 +56,13 @@ $(function() {
 
     var details = new Vue({
         el: '#details',
+        data: {
+            motorcycle: undefined
+        }
+    });
+
+    var editMotorcycle = new Vue({
+        el: '#editMotorcycle',
         data: {
             motorcycle: undefined
         }
