@@ -33,6 +33,19 @@ public class UserManagerImpl implements UserManager {
         return token;
     }
 
+    @Transactional
+    @Override
+    public boolean isAdmin(String authToken) {
+        User user = userDao.findByAuthToken(authToken);
+        return user != null && user.isAdmin();
+    }
+
+    @Transactional
+    @Override
+    public User getByAuthToken(String authToken) {
+        return userDao.findByAuthToken(authToken);
+    }
+
     /**
      * Generate an auth token to be used with the api
      *
