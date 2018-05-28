@@ -8,9 +8,15 @@ $(function() {
         },
         methods: {
             deleteItem: function(id) {
-                $.delete("api/motorcycles/" + id, function (data) {
-                    // todo
-                });
+                $.ajax({
+                   url: "api/motorcycles/" + id,
+                   type: 'DELETE',
+                   success: function(result) {
+                       $.get("api/motorcycles", function (data) {
+                           management.motorcycles = data;
+                       });
+                   }
+               });
             }
         }
     });
