@@ -1,18 +1,32 @@
-Vue.component('todo-item', {
-    props: ['todo'],
-    template: '<tr><td>{{ todo.id }}</td><td>{{ todo.brand }}</td><td>{{ todo.model }}</td></tr>'
-});
-
 $(function() {
     var management = new Vue({
         el: '#management',
         data: {
             isLogged: window.localStorage.getItem('token') !== null,
+            isAdmin: true,
             motorcycles: []
+        },
+        methods: {
+            deleteItem: function(id) {
+                $.delete("api/motorcycles/" + id, function (data) {
+                    // todo
+                });
+            }
         }
     });
 
     $.get("api/motorcycles", function (data) {
         management.motorcycles = data;
-    })
+    });
+
+    $.ajax({
+       url: "api/session/isAdmin",
+       dataType: 'json',
+       success: function(data, status) {
+           management.isAdmin = data;
+       },
+       beforeSend: function(xhr, settings) {
+           xhr.setRequestHeader('Authorization','Bearer ' + window.localStorage.getItem('token'));
+       }
+    });
 });

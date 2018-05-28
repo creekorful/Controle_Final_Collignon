@@ -1,4 +1,4 @@
-<html xmlns:v-on="http://www.w3.org/1999/xhtml">
+<html xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
     <head>
         <title>Test page</title>
 
@@ -41,14 +41,29 @@
                             <th>Id</th>
                             <th>Marque</th>
                             <th>Modèle</th>
+                            <th v-if="isAdmin">Supprimer</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr is="todo-item"
+                        <tr v-for="item in motorcycles"
+                            v-bind:key="item.id">
+                            <td>{{ item.id }}</td>
+                            <td>{{ item.brand }}</td>
+                            <td>{{ item.model }}</td>
+                            <td v-if="isAdmin"><button class="btn btn-danger">DELETE</button></td>
+                        </tr>
+                        <!--tr is="todo-item"
                                 v-for="item in motorcycles"
                                 v-bind:todo="item"
-                                v-bind:key="item.id">
+                                v-bind:key="item.id"
+                                v-if="!isAdmin">
                         </tr>
+                        <tr is="todo-item-admin"
+                            v-for="item in motorcycles"
+                            v-bind:todo="item"
+                            v-bind:key="item.id"
+                            v-if="isAdmin">
+                        </tr-->
                     </tbody>
                 </table>
             </center>
