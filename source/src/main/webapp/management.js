@@ -65,6 +65,21 @@ $(function() {
         el: '#editMotorcycle',
         data: {
             motorcycle: undefined
+        },
+        methods: {
+            updateMotorcycle: function() {
+                $.ajax({
+                   url: "api/motorcycles/" + motorcycle.id,
+                   type: 'PATCH',
+                   data: data.motorcycle,
+                   success: function(data) {
+                       $.get("api/motorcycles", function (data) {
+                           management.motorcycles = data;
+                           data.motorcycle = undefined;
+                       });
+                   }
+               });
+            }
         }
     });
 });
