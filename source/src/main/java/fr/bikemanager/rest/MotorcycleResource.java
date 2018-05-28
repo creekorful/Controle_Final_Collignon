@@ -1,29 +1,27 @@
 package fr.bikemanager.rest;
 
-import fr.bikemanager.annotation.Secured;
-import fr.bikemanager.dto.DetailedMotorcycleDto;
-import fr.bikemanager.dto.MotorcycleDto;
-import fr.bikemanager.entity.User;
-import fr.bikemanager.manager.MotorcycleManager;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-import fr.bikemanager.manager.UserManager;
-import fr.bikemanager.rest.MotorcycleResource;
-
 import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.PATCH;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.SecurityContext;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import fr.bikemanager.annotation.Secured;
+import fr.bikemanager.dto.DetailedMotorcycleDto;
+import fr.bikemanager.dto.MotorcycleDto;
+import fr.bikemanager.entity.User;
+import fr.bikemanager.manager.MotorcycleManager;
+import fr.bikemanager.manager.UserManager;
 
 @Path("/motorcycles")
 @Produces(MediaType.APPLICATION_JSON)
@@ -58,7 +56,7 @@ public class MotorcycleResource {
     }
 
     @Secured
-    @PUT
+    @PATCH
     @Path("/{id}")
     public void editMotorcycle(@PathParam("id") int id, DetailedMotorcycleDto details) {
         // Only admin are allowed to edit motorcycle
