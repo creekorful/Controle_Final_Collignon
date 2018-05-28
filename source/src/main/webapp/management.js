@@ -1,6 +1,6 @@
 Vue.component('todo-item', {
     props: ['todo'],
-    template: '<tr><td>{{ todo.brand }}</td></tr>'
+    template: '<tr><td>{{ todo.id }}</td><td>{{ todo.brand }}</td><td>{{ todo.model }}</td></tr>'
 });
 
 $(function() {
