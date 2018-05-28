@@ -25,7 +25,22 @@
         </div>
 
         <div id="management" v-if="isLogged">
-            You are logged.
+            <center>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Brand</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <todo-item
+                                v-for="item in motorcycles"
+                                v-bind:todo="item"
+                                v-bind:key="item.id">
+                        </todo-item>
+                    </tbody>
+                </table>
+            </center>
         </div>
     </body>
 </html>
