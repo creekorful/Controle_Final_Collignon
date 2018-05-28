@@ -16,6 +16,10 @@ public class EngineDto implements Serializable {
 
     private int engineCylinder;
 
+    public EngineDto() {
+
+    }
+
     public EngineDto(Engine engine) {
         this.id = engine.getId();
         this.oilQuantity = engine.getOilQuantity();

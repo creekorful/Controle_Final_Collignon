@@ -8,6 +8,10 @@ public class CredentialsDto implements Serializable {
 
     private String password;
 
+    public CredentialsDto() {
+
+    }
+
     public String getUsername() {
         return username;
     }
