@@ -45,8 +45,11 @@ public class DatabaseResource {
         engineDao.save(citroenEngine);
 
         // And finally, the motorcycle
-        motorcycleDao.save(new Motorcycle("Renaud", "Lol I", renaudEngine, 5, "Course"));
-        motorcycleDao.save(new Motorcycle("Citroen", "CIT II", citroenEngine, 7, "Ville"));
+        motorcycleDao.save(new Motorcycle("BMW", "F 750 GS", renaudEngine, 5, "Course"));
+        motorcycleDao.save(new Motorcycle("BMW", "C 400 X", renaudEngine, 5, "Ville"));
+        motorcycleDao.save(new Motorcycle("Ducati", "Monster 620", citroenEngine, 7, "Course"));
+        motorcycleDao.save(new Motorcycle("Ducati", "SuperSport 900", citroenEngine, 7, "Course"));
+        motorcycleDao.save(new Motorcycle("Ducati", "Multistrada 1200 Enduro", citroenEngine, 7, "Course"));
         motorcycleDao.save(new Motorcycle("Ford", "F III", renaudEngine, 10, "Road"));
 
         return Response.ok().build();
