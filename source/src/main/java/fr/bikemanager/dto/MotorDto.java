@@ -24,6 +24,14 @@ public class MotorDto implements Serializable {
         this.engineCylinder = motor.getEngineCylinder();
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public float getOilQuantity() {
         return oilQuantity;
     }

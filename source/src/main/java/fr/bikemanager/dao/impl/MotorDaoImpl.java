@@ -1,5 +1,7 @@
 package fr.bikemanager.dao.impl;
 
+import java.util.List;
+
 import fr.bikemanager.dao.AbstractDao;
 import fr.bikemanager.dao.MotorDao;
 import fr.bikemanager.entity.Motor;
@@ -13,5 +15,12 @@ public class MotorDaoImpl extends AbstractDao implements MotorDao {
     @Override
     public void save(Motor motor) {
         getSession().save(motor);
+    }
+
+    @SuppressWarnings("unchecked")
+    @Transactional
+    @Override
+    public List<Motor> findAll() {
+        return getSession().createCriteria(Motor.class).list();
     }
 }
