@@ -4,15 +4,22 @@
 
         <meta charset="utf-8"/>
 
+        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
         <script type="text/javascript" src="login.js"></script>
+        <script type="text/javascript" src="navbar.js"></script>
         <script type="text/javascript" src="management.js"></script>
     </head>
     <body>
+        <nav id="navbar" class="navbar navbar-inverse" v-if="isLogged">
+            <button class="btn btn-danger navbar-btn" v-on:click="logout">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </nav>
         <div id="login" style="margin: 10% 20% 0 20%;" v-if="!isLogged">
             <div class="form-group">
                 <label for="username">Nom d'utilisateur</label>
