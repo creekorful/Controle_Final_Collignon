@@ -1,12 +1,18 @@
 <html xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
     <head>
-        <title>Test page</title>
+        <title>Interface d'administration</title>
 
         <meta charset="utf-8"/>
 
-
         <!-- external css -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+        <!-- internal css -->
+        <style type="text/css">
+            tr {
+                cursor: pointer;
+            }
+        </style>
 
         <!-- external scripts -->
         <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
@@ -20,11 +26,17 @@
         <script type="text/javascript" src="management.js"></script>
     </head>
     <body>
-        <nav id="navbar" class="navbar navbar-inverse" v-if="isLogged">
+        <!-- Navbar -->
+        <nav id="navbar" class="navbar navbar-dark bg-dark" v-if="isLogged">
             <button class="btn btn-danger navbar-btn" v-on:click="logout">
                 <i class="fas fa-sign-out-alt"></i>
             </button>
+            <button class="btn btn-primary navbar-btn" v-on:click="logout" v-if="isAdmin">
+                <i class="fas fa-plus"></i>
+            </button>
         </nav>
+
+        <!-- Login -->
         <div id="login" style="margin: 10% 20% 0 20%;" v-if="!isLogged">
             <div class="form-group">
                 <label for="username">Nom d'utilisateur</label>
@@ -38,29 +50,47 @@
             <button class="btn btn-primary" style="width: 100%;" v-on:click="login">Se connecter</button>
         </div>
 
-        <div id="management" v-if="isLogged">
+        <!-- Management (table) -->
+        <div id="management" v-if="isLogged" style="padding: 3%;">
             <center>
-                <table class="table table-striped">
+                <table id="contentTable" class="table table-striped table-bordered">
                     <thead class="thead-dark">
                         <tr>
-                            <th>Id</th>
+                            <th>#</th>
                             <th>Marque</th>
                             <th>Modèle</th>
-                            <th v-if="isAdmin">Supprimer</th>
+                            <th v-if="isAdmin">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="item in motorcycles"
-                            v-bind:key="item.id">
+                            v-bind:key="item.id" v-on:click="selectItem(item.id)">
                             <td>{{ item.id }}</td>
                             <td>{{ item.brand }}</td>
                             <td>{{ item.model }}</td>
-                            <td v-if="isAdmin"><button class="btn btn-danger"
-                                                       v-on:click="deleteItem(item.id)"><i class="fas fa-trash-alt"></i></button></td>
+                            <td v-if="isAdmin">
+                                <button class="btn btn-danger"
+                                        v-on:click="deleteItem(item.id)"><i class="fas fa-trash-alt"></i></button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </center>
+        </div>
+
+        <!-- Details -->
+        <div id="details" v-if="motorcycle" style="padding: 0 3% 3% 3%;">
+            <h2>Détail de la moto</h2><br/>
+            <h4>{{motorcycle.brand}}</h4>
+            <h4>Modèle {{motorcycle.model}}</h4><br/>
+            Puissance fiscale: {{motorcycle.fiscalPower}} CV<br/>
+            Type de roues: {{motorcycle.tireType}}
+            <br/><br/>
+            <h5>Charactéristiques du moteur</h5>
+            Fabriquant: {{motorcycle.engine.brand}}<br/>
+            Volume cylindre: {{motorcycle.engine.engineCylinder}} cm^3<br/>
+            Puissance moteur: {{motorcycle.engine.enginePower}}<br/>
+            Niveau d'huile: {{motorcycle.engine.oilQuantity}}<br/>
         </div>
     </body>
 </html>

@@ -3,7 +3,7 @@ $(function() {
         el: '#management',
         data: {
             isLogged: window.localStorage.getItem('token') !== null,
-            isAdmin: true,
+            isAdmin: false,
             motorcycles: []
         },
         methods: {
@@ -23,6 +23,11 @@ $(function() {
                        xhr.setRequestHeader('Authorization','Bearer ' + window.localStorage.getItem('token'));
                    }
                });
+            },
+            selectItem: function(id) {
+                $.get("api/motorcycles/" + id, function (data) {
+                    details.motorcycle = data;
+                });
             }
         }
     });
@@ -40,5 +45,12 @@ $(function() {
        beforeSend: function(xhr, settings) {
            xhr.setRequestHeader('Authorization','Bearer ' + window.localStorage.getItem('token'));
        }
+    });
+
+    var details = new Vue({
+        el: '#details',
+        data: {
+            motorcycle: undefined
+        }
     });
 });
