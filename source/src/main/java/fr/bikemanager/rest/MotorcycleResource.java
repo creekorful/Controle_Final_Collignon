@@ -14,6 +14,7 @@ import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -41,13 +42,13 @@ public class MotorcycleResource {
 
     @GET
     @Path("/{id}")
-    public DetailedMotorcycleDto getMotorcycle(int id) {
+    public DetailedMotorcycleDto getMotorcycle(@PathParam("id") int id) {
         return motorcycleManager.getById(id);
     }
 
     @DELETE
     @Path("/{id}")
-    public void deleteMotorcycle(int id) {
+    public void deleteMotorcycle(@PathParam("id") int id) {
         motorcycleManager.deleteById(id);
     }
 }
