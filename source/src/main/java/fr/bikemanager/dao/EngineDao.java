@@ -14,6 +14,14 @@ public interface EngineDao {
     void save(Engine engine);
 
     /**
+     * Find an engine using his id
+     *
+     * @param id the engine id
+     * @return the associated engine or null if not found
+     */
+    Engine findById(int id);
+
+    /**
      * Find all existing engines from the database
      *
      * @return the list of all existing engines

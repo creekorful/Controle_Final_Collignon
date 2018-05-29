@@ -7,9 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import fr.bikemanager.dao.EngineDao;
 import fr.bikemanager.dao.MotorcycleDao;
+import fr.bikemanager.dto.CreateMotorcycleDto;
 import fr.bikemanager.dto.DetailedMotorcycleDto;
 import fr.bikemanager.dto.MotorcycleDto;
+import fr.bikemanager.entity.Engine;
 import fr.bikemanager.entity.Motorcycle;
 import fr.bikemanager.exception.NotFoundException;
 import fr.bikemanager.manager.MotorcycleManager;
@@ -19,9 +22,12 @@ public class MotorcycleManagerImpl implements MotorcycleManager {
 
     private MotorcycleDao motorcycleDao;
 
+    private EngineDao engineDao;
+
     @Autowired
-    public MotorcycleManagerImpl(MotorcycleDao motorcycleDao) {
+    public MotorcycleManagerImpl(MotorcycleDao motorcycleDao, EngineDao engineDao) {
         this.motorcycleDao = motorcycleDao;
+        this.engineDao = engineDao;
     }
 
     @Override
@@ -36,8 +42,16 @@ public class MotorcycleManagerImpl implements MotorcycleManager {
     }
 
     @Override
-    public void create(DetailedMotorcycleDto motorcycleDto) {
-        // todo
+    public void create(CreateMotorcycleDto motorcycleDto) {
+        Engine engine = engineDao.findById(motorcycleDto.getEngineId());
+
+        if (engine != null) {
+            Motorcycle motorcycle = new Motorcycle(motorcycleDto.getBrand(), motorcycleDto.getModel(),
+                                                   engine, motorcycleDto.getFiscalPower(), motorcycleDto.getTireType());
+            motorcycleDao.save(motorcycle);
+        } else {
+            throw new NotFoundException("Invalid engine id.");
+        }
     }
 
     @Override

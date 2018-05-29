@@ -17,6 +17,7 @@ import javax.ws.rs.core.SecurityContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import fr.bikemanager.annotation.Secured;
+import fr.bikemanager.dto.CreateMotorcycleDto;
 import fr.bikemanager.dto.DetailedMotorcycleDto;
 import fr.bikemanager.dto.MotorcycleDto;
 import fr.bikemanager.entity.User;
@@ -48,7 +49,7 @@ public class MotorcycleResource {
 
     @Secured
     @POST
-    public void addMotorcycle(DetailedMotorcycleDto motorcycleDto) {
+    public void addMotorcycle(CreateMotorcycleDto motorcycleDto) {
         // Only admin user are allowed to add motorcycle
         if (isUserAdmin(context.getUserPrincipal().getName())) {
             motorcycleManager.create(motorcycleDto);

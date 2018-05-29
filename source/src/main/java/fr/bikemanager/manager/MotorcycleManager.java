@@ -2,6 +2,7 @@ package fr.bikemanager.manager;
 
 import java.util.List;
 
+import fr.bikemanager.dto.CreateMotorcycleDto;
 import fr.bikemanager.dto.DetailedMotorcycleDto;
 import fr.bikemanager.dto.MotorcycleDto;
 
@@ -23,11 +24,11 @@ public interface MotorcycleManager {
     DetailedMotorcycleDto getById(int motorcycleId);
 
     /**
-     * Create a motorcycle using the provided fr.bikemanager.dto
+     * Create a motorcycle using the provided dto
      *
      * @param motorcycleDto the information about the motorcycle to create
      */
-    void create(DetailedMotorcycleDto motorcycleDto);
+    void create(CreateMotorcycleDto motorcycleDto);
 
     /**
      * Create a motorcycle using his id
