@@ -8,6 +8,8 @@ public class DetailedMotorcycleDto extends MotorcycleDto {
 
     private String tireType;
 
+    private int fiscalPower;
+
     public DetailedMotorcycleDto() {
 
     }
@@ -16,6 +18,7 @@ public class DetailedMotorcycleDto extends MotorcycleDto {
         super(motorcycle);
         this.engine = new EngineDto(motorcycle.getEngine());
         this.tireType = motorcycle.getTireType();
+        this.fiscalPower = motorcycle.getFiscalPower();
     }
 
     public EngineDto getEngine() {
@@ -32,5 +35,13 @@ public class DetailedMotorcycleDto extends MotorcycleDto {
 
     public void setTireType(String tireType) {
         this.tireType = tireType;
+    }
+
+    public int getFiscalPower() {
+        return fiscalPower;
+    }
+
+    public void setFiscalPower(int fiscalPower) {
+        this.fiscalPower = fiscalPower;
     }
 }

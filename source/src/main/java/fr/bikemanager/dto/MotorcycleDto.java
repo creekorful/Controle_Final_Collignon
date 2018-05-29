@@ -12,8 +12,6 @@ public class MotorcycleDto implements Serializable {
 
     private String model;
 
-    private int fiscalPower;
-
     public MotorcycleDto() {
 
     }
@@ -22,7 +20,6 @@ public class MotorcycleDto implements Serializable {
         this.id = motorcycle.getId();
         this.brand = motorcycle.getBrand();
         this.model = motorcycle.getModel();
-        this.fiscalPower = motorcycle.getFiscalPower();
     }
 
     public int getId() {
@@ -47,13 +44,5 @@ public class MotorcycleDto implements Serializable {
 
     public void setModel(String model) {
         this.model = model;
-    }
-
-    public int getFiscalPower() {
-        return fiscalPower;
-    }
-
-    public void setFiscalPower(int fiscalPower) {
-        this.fiscalPower = fiscalPower;
     }
 }
