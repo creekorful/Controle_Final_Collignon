@@ -32,5 +32,5 @@ Pour generer la base de données
 
 - Permettre à l'utilisateur d'ajouter un véhicule (frontend method+backend)
 - Refactorer le code JS (c'est vachement sale pour le moment)
-- Ajouter des tests unitaires pour le backend
+- <s>Ajouter des tests unitaires pour le backend</s>
 - Revoir le design de la fenêtre de détails
