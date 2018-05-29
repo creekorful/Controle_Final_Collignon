@@ -11,6 +11,7 @@ import fr.bikemanager.dao.MotorcycleDao;
 import fr.bikemanager.dto.DetailedMotorcycleDto;
 import fr.bikemanager.dto.MotorcycleDto;
 import fr.bikemanager.entity.Motorcycle;
+import fr.bikemanager.exception.NotFoundException;
 import fr.bikemanager.manager.MotorcycleManager;
 
 @Service
@@ -54,6 +55,8 @@ public class MotorcycleManagerImpl implements MotorcycleManager {
             if (details.getModel() != null) motorcycle.setModel(details.getModel());
             if (details.getFiscalPower() != 0) motorcycle.setFiscalPower(details.getFiscalPower());
             if (details.getTireType() != null) motorcycle.setTireType(details.getTireType());
+        } else {
+            throw new NotFoundException("Invalid motorcycle id.");
         }
     }
 }
