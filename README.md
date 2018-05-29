@@ -26,4 +26,11 @@ Pour generer la base de données
 
 > GET /api/databases/create
 
-# Utiliser l'application
+---
+
+# Ce qui reste à faire
+
+- Permettre à l'utilisateur d'ajouter un véhicule (frontend method+backend)
+- Refactorer le code JS (c'est vachement sale pour le moment)
+- Ajouter des tests unitaires pour le backend
+- Revoir le design de la fenêtre de détails
