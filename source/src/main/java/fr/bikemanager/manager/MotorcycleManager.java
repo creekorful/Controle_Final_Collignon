@@ -1,9 +1,9 @@
 package fr.bikemanager.manager;
 
+import java.util.List;
+
 import fr.bikemanager.dto.DetailedMotorcycleDto;
 import fr.bikemanager.dto.MotorcycleDto;
-
-import java.util.List;
 
 public interface MotorcycleManager {
 

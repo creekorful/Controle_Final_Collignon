@@ -3,6 +3,8 @@ package fr.bikemanager.dao.impl;
 import fr.bikemanager.dao.AbstractDao;
 import fr.bikemanager.dao.MotorcycleDao;
 import fr.bikemanager.entity.Motorcycle;
+import fr.bikemanager.exception.NotFoundException;
+
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
@@ -33,6 +35,8 @@ public class MotorcycleDaoImpl extends AbstractDao implements MotorcycleDao {
 
         if (motorcycle != null) {
             getSession().delete(motorcycle);
+        } else {
+            throw new NotFoundException("Invalid motorcycle id.");
         }
     }
 

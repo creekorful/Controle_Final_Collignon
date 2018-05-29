@@ -1,16 +1,17 @@
 package fr.bikemanager.manager.impl;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import fr.bikemanager.dao.MotorcycleDao;
 import fr.bikemanager.dto.DetailedMotorcycleDto;
 import fr.bikemanager.dto.MotorcycleDto;
 import fr.bikemanager.entity.Motorcycle;
 import fr.bikemanager.manager.MotorcycleManager;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class MotorcycleManagerImpl implements MotorcycleManager {

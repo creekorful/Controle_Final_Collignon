@@ -1,8 +1,8 @@
 package fr.bikemanager.dao;
 
-import fr.bikemanager.entity.Motorcycle;
-
 import java.util.List;
+
+import fr.bikemanager.entity.Motorcycle;
 
 public interface MotorcycleDao {
 

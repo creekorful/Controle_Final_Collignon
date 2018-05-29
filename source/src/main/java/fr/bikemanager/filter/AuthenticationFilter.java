@@ -15,6 +15,7 @@ import javax.ws.rs.ext.Provider;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import fr.bikemanager.annotation.Secured;
+import fr.bikemanager.dto.ErrorDto;
 import fr.bikemanager.entity.User;
 import fr.bikemanager.manager.UserManager;
 
@@ -98,6 +99,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
         // The WWW-Authenticate header is sent along with the response
         requestContext.abortWith(
                 Response.status(Response.Status.UNAUTHORIZED)
+                        .entity(new ErrorDto("Invalid credentials."))
                         .header(HttpHeaders.WWW_AUTHENTICATE,
                                 AUTHENTICATION_SCHEME + " realm=\"" + REALM + "\"")
                         .build());
