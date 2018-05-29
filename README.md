@@ -34,7 +34,7 @@ Pour populer la base de données il suffit d'apeller l'endpoint suivant:
 
 # Ce qui reste à faire
 
-- Permettre à l'utilisateur d'ajouter un véhicule (frontend method+backend)
+- <s>Permettre à l'utilisateur d'ajouter un véhicule (frontend method+backend)</s>
 - Refactorer le code JS (c'est vachement sale pour le moment)
 - <s>Ajouter des tests unitaires pour le backend</s>
 - Revoir le design de la fenêtre de détails
