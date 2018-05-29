@@ -17,12 +17,16 @@ URL de l'API : http://localhost:8080/api/
 Installer si nécessaire un serveur MySQL
 
 - Créer la base de données "bikemanager"
-- Créer l'utilisateur nécessaire avec les credentials suivant : bikemanager/K4baRKCX2C#z\*sv$
+- Créer l'utilisateur nécessaire avec les credentials suivant : bikemanager / K4baRKCX2C#z\*sv$
 - Grant all privileges à bikemanager sur la base bikemanager
+
+<i>Note: Si vous voulez utiliser une autre table / un autre user, il suffit de modifier le fichier de configuration src/main/resources/application.properties</i>
 
 # Initialiser la base de données
 
-Pour generer la base de données
+Lancer l'application. A son lancement, étant donné que hibernate est en mode "create" il va générer les tables manuellement à chaque fois.
+
+Pour populer la base de données il suffit d'apeller l'endpoint suivant:
 
 > GET /api/databases/create
 
