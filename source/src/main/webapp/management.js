@@ -130,7 +130,8 @@ $(function() {
                 fiscalPower: 0,
                 tireType: '',
                 engineId: 0
-            }
+            },
+            engines: []
         },
         methods: {
             createMotorcycle: function() {
@@ -143,7 +144,7 @@ $(function() {
                    success: function(data) {
                        $.get("api/motorcycles", function (data) {
                            management.motorcycles = data;
-                           editMotorcycle.motorcycle = undefined;
+                           createMotorcycle.motorcycle = undefined;
                            createMotorcycle.isShow = false;
                        });
                    },
@@ -153,5 +154,9 @@ $(function() {
                });
             }
         }
+    });
+
+    $.get("api/engines", function (data) {
+        createMotorcycle.engines = data;
     });
 });

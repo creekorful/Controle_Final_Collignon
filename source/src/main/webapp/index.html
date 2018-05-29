@@ -15,7 +15,6 @@
 
         <!-- internal scripts -->
         <script type="text/javascript" src="login.js"></script>
-        <script type="text/javascript" src="navbar.js"></script>
         <script type="text/javascript" src="management.js"></script>
     </head>
     <body>
@@ -116,7 +115,12 @@
             Modèle: <input type="text" v-model="motorcycle.model"/><br/><br/>
             Puissance fiscale: <input type="text" v-model="motorcycle.fiscalPower"/>CV<br/>
             Type de roues: <input type="text" v-model="motorcycle.tireType"/><br/>
-            Id du moteur: <input type="text" v-model="motorcycle.engineId"/><br/>
+            Moteur:
+            <select v-model="motorcycle.engineId">
+                <option v-for="engine in engines" v-bind:value="engine.id">
+                    {{ engine.brand }}
+                </option>
+            </select>
             <br/><br/>
             <button class="btn btn-lg btn-primary"
                     v-on:click="createMotorcycle"><i class="far fa-save"></i></button>
