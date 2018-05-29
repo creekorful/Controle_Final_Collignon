@@ -69,14 +69,19 @@ $(function() {
         methods: {
             updateMotorcycle: function() {
                 $.ajax({
-                   url: "api/motorcycles/" + motorcycle.id,
+                   url: "api/motorcycles/" + editMotorcycle.motorcycle.id,
+                   contentType: "application/json; charset=utf-8",
+                   dataType: 'json',
                    type: 'PATCH',
-                   data: data.motorcycle,
+                   data: JSON.stringify(editMotorcycle.motorcycle),
                    success: function(data) {
                        $.get("api/motorcycles", function (data) {
                            management.motorcycles = data;
-                           data.motorcycle = undefined;
+                           editMotorcycle.motorcycle = undefined;
                        });
+                   },
+                   beforeSend: function(xhr, settings) {
+                       xhr.setRequestHeader('Authorization','Bearer ' + window.localStorage.getItem('token'));
                    }
                });
             }
