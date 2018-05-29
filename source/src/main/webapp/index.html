@@ -24,7 +24,7 @@
             <button class="btn btn-danger navbar-btn btn-lg" v-on:click="logout">
                 <i class="fas fa-sign-out-alt"></i>
             </button>
-            <button class="btn btn-primary navbar-btn btn-lg" v-on:click="logout" v-if="isAdmin">
+            <button class="btn btn-primary navbar-btn btn-lg" v-on:click="showAdd" v-if="isAdmin">
                 <i class="fas fa-plus"></i>
             </button>
         </nav>
@@ -107,6 +107,19 @@
             Niveau d'huile: {{motorcycle.engine.oilQuantity}}<br/><br/>
             <button class="btn btn-lg btn-primary"
                     v-on:click="updateMotorcycle"><i class="far fa-save"></i></button>
+        </div>
+
+        <!-- Create motorcycle -->
+        <div id="createMotorcycle" v-if="isShow" style="padding: 0 3% 3% 3%;">
+            <h2>Ajout d'une moto</h2><br/>
+            Marque: <input type="text" v-model="motorcycle.brand"/><br/>
+            Modèle: <input type="text" v-model="motorcycle.model"/><br/><br/>
+            Puissance fiscale: <input type="text" v-model="motorcycle.fiscalPower"/>CV<br/>
+            Type de roues: <input type="text" v-model="motorcycle.tireType"/><br/>
+            Id du moteur: <input type="text" v-model="motorcycle.engineId"/><br/>
+            <br/><br/>
+            <button class="btn btn-lg btn-primary"
+                    v-on:click="createMotorcycle"><i class="far fa-save"></i></button>
         </div>
     </body>
 </html>
