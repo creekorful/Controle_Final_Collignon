@@ -38,3 +38,4 @@ Pour populer la base de données il suffit d'apeller l'endpoint suivant:
 - Refactorer le code JS (c'est vachement sale pour le moment)
 - <s>Ajouter des tests unitaires pour le backend</s>
 - Revoir le design de la fenêtre de détails
+- Permettre à l'utilisateur d'ajouter des moteurs (frontend method+backend)
