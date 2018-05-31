@@ -22,6 +22,14 @@ Installer si nécessaire un serveur MySQL
 
 <i>Note: Si vous voulez utiliser une autre table / un autre user, il suffit de modifier le fichier de configuration src/main/resources/application.properties</i>
 
+# Lancer l'application
+
+Rien de plus simple ! 
+
+Il suffit d'aller dans le dossier du projet et d'exécuter la commande suivante: 
+
+> mvn tomcat7:run
+
 # Initialiser la base de données
 
 Lancer l'application. A son lancement, étant donné que hibernate est en mode "create" il va générer les tables manuellement à chaque fois.
