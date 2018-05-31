@@ -47,3 +47,7 @@ Pour populer la base de données il suffit d'apeller l'endpoint suivant:
 - <s>Ajouter des tests unitaires pour le backend</s>
 - Revoir le design de la fenêtre de détails
 - Permettre à l'utilisateur d'ajouter des moteurs (frontend method+backend)
+
+# Notes
+
+- L'application à été tester avec Google Chrome mais devrait en théorie fonctionner avec n'importe quels browser récent.
